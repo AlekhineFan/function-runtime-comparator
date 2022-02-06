@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Runtime comparer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="main-container">
+      <div class="content-wrap">
+        <h1 class="center">Funtion comparator</h1>
+        <hr />
+        <h2 class="center">Paste your JS functions and compare their runtime!</h2>
+        <br />
+        <div class="center">
+          <button id="btn-compare" class="btn-main-controller">Get runtime(s) in milliseconds</button>
+        </div>
+        <div class="center">
+          <h3 class="instruction">Create your argument variables and separate them with new line</h3>
+          <p class="instruction">
+            Use the same variable names you use in your functions.<br />Omit the 'var', 'let' & 'const' keywords (eg. i
+            = 0)
+          </p>
+          <textarea cols="80" rows="3" id="txtarea-arguments" class="text-container"></textarea>
+        </div>
+
+        <div class="center" id="div-funtion-input">
+          <h2>Functions</h2>
+          <button id="btn-add" class="btn-main-controller">Add new function</button>
+          <div>
+            <textarea cols="80" rows="6" class="function-container text-container"></textarea>
+          </div>
+        </div>
+      </div>
+      <!--footer id="footer">
+        <a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by Pixel perfect - Flaticon</a>
+      </footer-->
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

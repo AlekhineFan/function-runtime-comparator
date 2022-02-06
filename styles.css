@@ -1,0 +1,62 @@
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
+.center {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 60vw;
+}
+
+.text-container {
+  border-radius: 6px;
+  margin-top: 5px;
+  padding: 5px;
+  background-color: rgb(240, 240, 240);
+}
+
+.function-container {
+  position: relative;
+}
+
+.delete-icon {
+  max-width: 35px;
+  max-height: 35px;
+  position: absolute;
+  top: 8px;
+  left: 578px;
+}
+
+.instruction {
+  margin: 5px;
+}
+
+.btn-main-controller {
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  background-color: #6abd6d;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
