@@ -41,7 +41,7 @@ function runFunctionFromInput() {
 function addTextArea() {
   const newtextArea = document.createElement('textarea')
   newtextArea.setAttribute('cols', 80)
-  newtextArea.setAttribute('rows', 6)
+  newtextArea.setAttribute('rows', 5)
   newtextArea.classList.add('function-container')
   newtextArea.classList.add('text-container')
 

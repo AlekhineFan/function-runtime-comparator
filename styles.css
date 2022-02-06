@@ -19,7 +19,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 60vw;
 }
 
 .text-container {
@@ -27,10 +26,12 @@
   margin-top: 5px;
   padding: 5px;
   background-color: rgb(240, 240, 240);
+  width: 605px
 }
 
 .function-container {
   position: relative;
+  width: 605px
 }
 
 .delete-icon {
@@ -59,4 +60,5 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  margin-bottom: 25px;
 }
