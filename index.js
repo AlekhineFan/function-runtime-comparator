@@ -56,13 +56,17 @@ function addTextArea() {
   container.appendChild(deleteIcon)
 
   functionInputs.appendChild(container)
+  container.scrollIntoView()
 
   document.querySelectorAll('.delete-icon').forEach(icon => {
-    icon.addEventListener('click', () => {
-      const parent = icon.parentNode
-      parent.remove()
-    })
+    if (!icon.getAttribute('data-has-listener')) {
+      icon.addEventListener('click', () => {
+        const parent = icon.parentNode
+        parent.remove()
+      })
+    }
   })
+  deleteIcon.setAttribute('data-has-listener', true)
 }
 
 const argumentsInput = document.querySelector('#txtarea-arguments')
