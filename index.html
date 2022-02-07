@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Runtime comparer</title>
+    <title>Runtime comparator</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -24,12 +24,15 @@
             <li>Omit the 'var', 'let' & 'const' keywords (eg. i = 0)</li>
             <li>Use function declarations only</li>
           </ul>
+          <h2>Argument variables</h2>
           <textarea cols="80" rows="3" id="txtarea-arguments" class="text-container"></textarea>
         </div>
 
         <div class="center" id="div-funtion-input">
-          <h2>Functions</h2>
-          <button id="btn-add" class="btn-main-controller">Add new function</button>
+          <div id="function-headers">
+            <h2>Functions</h2>
+            <button id="btn-add" class="btn-main-controller">Add new</button>
+          </div>
           <div>
             <textarea cols="80" rows="5" class="function-container text-container"></textarea>
           </div>

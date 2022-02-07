@@ -29,6 +29,17 @@
   width: 605px
 }
 
+#function-headers {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+#btn-add {
+  margin-top: 14px;
+  margin-left: 20px;
+}
+
 .function-container {
   position: relative;
   width: 605px
@@ -53,7 +64,7 @@
   background-color: #6abd6d;
   border: none;
   color: white;
-  padding: 20px;
+  padding: 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
