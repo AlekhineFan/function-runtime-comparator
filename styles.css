@@ -19,6 +19,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 60vw;
 }
 
 .text-container {
@@ -26,23 +27,10 @@
   margin-top: 5px;
   padding: 5px;
   background-color: rgb(240, 240, 240);
-  width: 605px
-}
-
-#function-headers {
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
-}
-
-#btn-add {
-  margin-top: 14px;
-  margin-left: 20px;
 }
 
 .function-container {
   position: relative;
-  width: 605px
 }
 
 .delete-icon {
@@ -64,12 +52,62 @@
   background-color: #6abd6d;
   border: none;
   color: white;
-  padding: 12px;
+  padding: 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  margin-bottom: 25px;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 98%;
+  height: 25px;
+  background: #f0f0f0;
+  border: 1px solid black;
+  border-radius: 6px;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background:  #6abd6d;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #6abd6d;
+  cursor: pointer;
+}
+
+.slide-elements {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  max-width: 40vw;
+  margin-top: 10px;
+}
+
+.slider-instruction {
+  margin-top: 10px;
 }

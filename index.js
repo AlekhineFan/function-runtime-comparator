@@ -1,3 +1,5 @@
+let timesRun = 1;
+
 async function compare(fns) {
   return fns.map(fn => exec(fn))
 }
@@ -5,9 +7,14 @@ async function compare(fns) {
 function exec(fn) {
   createTestVariables()
   const t = performance.now()
-  const res = fn()
+  let res
+
+  for (let i = 0; i < timesRun; i++) {
+    res = fn()
+  }
+
   const t2 = performance.now()
-  const diff = t2 - t
+  const diff = (t2 - t) / timesRun
 
   return { diff, res }
 }
@@ -41,7 +48,7 @@ function runFunctionFromInput() {
 function addTextArea() {
   const newtextArea = document.createElement('textarea')
   newtextArea.setAttribute('cols', 80)
-  newtextArea.setAttribute('rows', 5)
+  newtextArea.setAttribute('rows', 6)
   newtextArea.classList.add('function-container')
   newtextArea.classList.add('text-container')
 
@@ -59,14 +66,11 @@ function addTextArea() {
   container.scrollIntoView()
 
   document.querySelectorAll('.delete-icon').forEach(icon => {
-    if (!icon.getAttribute('data-has-listener')) {
-      icon.addEventListener('click', () => {
-        const parent = icon.parentNode
-        parent.remove()
-      })
-    }
+    icon.addEventListener('click', () => {
+      const parent = icon.parentNode
+      parent.remove()
+    })
   })
-  deleteIcon.setAttribute('data-has-listener', true)
 }
 
 const argumentsInput = document.querySelector('#txtarea-arguments')
@@ -85,6 +89,12 @@ function createStringForFuntionConstructor(inputStr) {
   const fnBody = inputStr.substring(++firstClosingBracket)
   return new Function(fnBody)
 }
+
+const rangeInput = document.querySelector('#myRange')
+
+rangeInput.addEventListener('change', () => {
+  timesRun = rangeInput.value
+})
 
 document.querySelector('#btn-add').addEventListener('click', addTextArea)
 document.querySelector('#btn-compare').addEventListener('click', createTestVariables)

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Runtime comparator</title>
+    <title>Runtime comparer</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -17,24 +17,28 @@
         <div class="center">
           <button id="btn-compare" class="btn-main-controller">Get runtime(s) in milliseconds</button>
         </div>
+        <p class="center slider-instruction">If the runtime is 0 ms, try increasing the number of function invocations. The average runtime be displayed.</p>
+        <div class="center slide-elements">
+          <p><b>1</b></p>
+          <div class="slidecontainer">
+            <input type="range" min="1" max="10000" value="1" class="slider" id="myRange">
+          </div>
+          <p><b>10.000</b></p>
+        </div>
         <div class="center">
-          <ul>
-            <li>Create your argument variables and separate them with new line</li>
-            <li>Use the same variable names you use in your function's arguments</li>
-            <li>Omit the 'var', 'let' & 'const' keywords (eg. i = 0)</li>
-            <li>Use function declarations only</li>
-          </ul>
-          <h2>Argument variables</h2>
+          <h3 class="instruction">Create your argument variables and separate them with new line</h3>
+          <p class="instruction">
+            Use the same variable names you use in your function arguments.<br />Omit the 'var', 'let' & 'const'
+            keywords (eg. i = 0)
+          </p>
           <textarea cols="80" rows="3" id="txtarea-arguments" class="text-container"></textarea>
         </div>
 
         <div class="center" id="div-funtion-input">
-          <div id="function-headers">
-            <h2>Functions</h2>
-            <button id="btn-add" class="btn-main-controller">Add new</button>
-          </div>
+          <h2>Functions</h2>
+          <button id="btn-add" class="btn-main-controller">Add new function</button>
           <div>
-            <textarea cols="80" rows="5" class="function-container text-container"></textarea>
+            <textarea cols="80" rows="6" class="function-container text-container"></textarea>
           </div>
         </div>
       </div>
