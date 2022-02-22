@@ -78,10 +78,68 @@ const argumentsInput = document.querySelector('#txtarea-arguments')
 function createTestVariables() {
   const argumentStrings = argumentsInput.value.split('\n')
   for (const argStr of argumentStrings) {
-    const splitted = argStr.split('=')
-    window[`${splitted[0].trim()}`] = `${splitted[1].trim()}`
-    console.log(window[`${splitted[0].trim()}`] = `${splitted[1].trim()}`)
+    const splitted = argStr.split('=').map(charGroup => charGroup.trim())
+    const valueCharGroup = splitted[1]
+    let complexType;
+
+    switch(valueCharGroup[0]) {
+      case '[':
+        complexType = valueCharGroup.split(/[\s,\[\]]+/)
+          .filter(Boolean)
+          .map(item => item.trim())
+          .map(item => {
+            return convertToNumericIfPossible(item)
+          })
+        break
+      case '{':
+        const resultObj = {}
+        const valuesForObj = valueCharGroup.split(/[\s,:}{]+/).filter(Boolean)
+          .reduce((result, item, idx) => {
+              isKey = idx % 2 === 0
+              if (isKey) {
+                  result.keys.push(item)
+              } else {
+                  result.values.push(item)
+              }
+              return result
+          },{keys: [], values: []})
+        valuesForObj.keys.forEach((key, idx) => {
+          resultObj[key] = convertToNumericIfPossible(valuesForObj.values[idx])
+        })
+        complexType = resultObj
+    }
+
+    const varName = splitted[0]
+    const value = splitted[1]
+
+    if (complexType) {
+      window[varName] = complexType
+    } else {
+      window[varName] = convertToNumericIfPossible(value)
+    }
   }
+}
+
+function isNumber(str) {
+  if (typeof str != "string") return false 
+  return !isNaN(str)
+}
+
+function isFloat(str) {
+  if (typeof str != "string") return false 
+  return !isNaN(parseFloat(str))
+}
+
+function convertToNumericIfPossible(input) {
+  let result
+  if (isNumber(input)) {
+    result = parseInt(input)
+  } else if (isFloat(input)) {
+    result = parseFloat(input)
+  } else {
+    result = input
+  }
+  return result
 }
 
 function createStringForFuntionConstructor(inputStr) {
